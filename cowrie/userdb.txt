@@ -1,0 +1,4 @@
+root:x:!root
+root:x:admin123
+admin:x:admin
+pi:x:raspberry

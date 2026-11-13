@@ -1,0 +1,40 @@
+# Author: Aidan Guenther
+services:
+  cowrie:
+    image: cowrie/cowrie:latest
+    container_name: cowrie
+    environment:
+      - COWRIE_TELNET_ENABLED=yes
+      - COWRIE_HONEYPOT_HOSTNAME=web-prod-01
+    volumes:
+      - ./data/raw/cowrie:/cowrie/cowrie-git/var/log/cowrie
+      - ./data/raw/cowrie-downloads:/cowrie/cowrie-git/var/lib/cowrie/downloads
+      - ./cowrie/userdb.txt:/cowrie/cowrie-git/etc/userdb.txt:ro
+    networks:
+      labnet: { ipv4_address: 172.30.0.20 }
+
+  honeypot:
+    build: ./honeypot
+    container_name: honeypot
+    cap_add: [NET_RAW, NET_ADMIN]
+    volumes:
+      - ./data/raw/honeypot:/logs
+    networks:
+      labnet: { ipv4_address: 172.30.0.30 }
+
+  attacker:
+    build: ./attacks
+    container_name: attacker
+    command: sleep infinity
+    volumes:
+      - ./attacks:/attacks
+      - ./data/labels:/labels
+    networks:
+      labnet: { ipv4_address: 172.30.0.10 }
+
+networks:
+  labnet:
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
