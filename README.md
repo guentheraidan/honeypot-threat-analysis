@@ -17,16 +17,16 @@ docker exec attacker ping -c1 -W2 8.8.8.8   # must fail (lab is isolated from In
 | --- | --- | --- | --- |
 | attacker | 172.30.0.10 | Kali Linux, runs attack scripts | 8000 (payload server) |
 | cowrie | 172.30.0.20 | SSH/Telnet honeypot | 2222, 2223 |
-| honeypot | 172.30.0.30 | Custom Python honeypot | 21, 80, 3306, 6379 |
+| honeypot | 172.30.0.30 | Custom Python honeypot | 80 |
 
 ## Repository layout
 | Path | Purpose | Owner |
 | --- | --- | --- |
 | docker-compose.yaml | Defines the 3 containers and the isolated network | Aidan |
 | cowrie/userdb.txt | Which SSH logins Cowrie accepts | Aidan |
-| honeypot/ | Custom honeypot: logger, HTTP/FTP/decoy services, SYN sniffer | Aidan |
+| honeypot/ | Custom honeypot: logger, HTTP login service | Aidan |
 | attacks/ | Attacker image, attack scenarios, wordlists, labeler | Lazaro |
-| analysis/ | Log parser, classifier, evaluation, plots | Lazaro |
+| analysis/ | Log parser, classifier, evaluation, plots | Aidan |
 | data/raw/ | Raw honeypot logs (never edited) | code-generated |
 | data/labels/ | Ground-truth labels written by the attack scripts | code-generated |
 | data/processed/ | Parser/classifier output | code-generated |

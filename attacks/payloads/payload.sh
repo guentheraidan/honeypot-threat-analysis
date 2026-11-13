@@ -1,0 +1,1 @@
+# Harmless file fetched by wget in Scenario 2
