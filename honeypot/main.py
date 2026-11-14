@@ -1,6 +1,13 @@
 # Author: Aidan Guenther
-import time
+"""Runs every honeypot service concurrently"""
+import asyncio
+from services import http_login
 
-print("honeypot placeholder running", flush=True)
-while True:
-    time.sleep(3600)
+async def main() -> None:
+    await asyncio.gather(
+        http_login.serve(),
+        # ftp.serve(), decoy.serve()
+    )
+
+if __name__ == "__main__":
+    asyncio.run(main())
