@@ -72,6 +72,6 @@ plus `username`, `password`, `command`, `path`, `method`, `user_agent`, `status`
 - Branches: `defender` (Aidan), `attacker` (Lazaro); merge to `main` via pull request.
 - Every source file starts with `# Author: <name>`.
 - `data/` is gitignored; reproduce the dataset with the commands above.
-- 
+
 ## Authorship
 Per-file authorship is marked in each file's header comment and finalized before submission.
