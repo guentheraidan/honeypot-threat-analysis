@@ -1,4 +1,4 @@
-# Author: Lazaro Perez Jr.
+# Author: Aidan Guenther
 FROM kalilinux/kali-rolling
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nmap hydra sshpass openssh-client curl netcat-openbsd telnet \
