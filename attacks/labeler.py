@@ -1,24 +1,27 @@
-# Author: Lazaro Perez Jr.
+# Author: Aidan Guenther
 
 # Records start/end time of each attack to labels.jsonl
+"""Context manager that timestamps each scenario and appends a label line."""
 import json
 import os
-import threading
-import uuid
+from contextlib import contextmanager
 from datetime import datetime, timezone
-LOG_PATH=os.environ.get("Labeler_log", "/labels/labels.jsonl")
 
-class ContextManager:
-	def __init__(self,filename,mode):
-		self.filename=filename
-		self.mode=mode
-		self.file=None
-	def __enter__(self):
-		self.file=open(self.filename,self.mode)
-		return self.file
-	def __exit__(self,exc_type,exc_value,exc_traceback):
-		self.file.close()
-with ContextManager('labels.jsonl','w') as f:
-	f.write(line+"\n")
+LABELS = "/labels/labels.jsonl"
+ATTACKER_IP = "172.30.0.10"
 
-#Need to figure out how I'm going to get a scenario number, run_id, etc, just stuff I can't calculate here.
+def _now():
+    return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+
+@contextmanager
+def scenario(run_id, name, mitre, target):
+    start = _now()
+    try:
+        yield
+    finally:
+        rec = {"run_id": run_id, "scenario": name, "mitre": mitre,
+               "src_ip": ATTACKER_IP, "target": target,
+               "start_ts": start, "end_ts": _now()}
+        os.makedirs(os.path.dirname(LABELS), exist_ok=True)
+        with open(LABELS, "a") as f:
+            f.write(json.dumps(rec) + "\n")

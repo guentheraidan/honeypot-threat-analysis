@@ -2,5 +2,6 @@
 
 # Scenario 1: Hydra SSH brute force on Cowrie
 import subprocess
-command=["hydra","-L","users.txt","-P","passwords.txt","-s","2222","-t","4","172.30.0.20","ssh"]
-subprocess.run(command)
+def run():
+	command=["hydra","-L","/attacks/wordlists/users.txt","-P","/attacks/wordlists/passwords.txt","-s","2222","-t","4","172.30.0.20","ssh"]
+	subprocess.run(command)

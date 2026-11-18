@@ -3,17 +3,21 @@
 # Scenario 4: Normal activity, should not be flagged
 import subprocess
 import paramiko
+import time
 output_file = 'paramiko.org'
 def paramiko_B(command):
 	hostname='172.30.0.20'
 	print('running')
 	try:
-		port='22'
+		port='2222'
 		client=paramiko.SSHClient()
 		client.load_system_host_keys()
-		client.connect(hostname,port=22, username='root',password='admin123')
-		(stdin,stdout,stderr)=client.exec_command(command)
-		cmd_output=stdout.read()
+		client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+		client.connect(hostname,port=2222, username='root',password='admin123',look_for_keys=False,allow_agent=False)
+		channel=client.invoke_shell()
+		channel.send(command+'\n')
+		time.sleep(1)
+		cmd_output=channel.recv(4090).decode()
 		print('log printing: ', command, cmd_output)
 		with open(output_file,"w+") as file:
 			file.write(str(cmd_output))
@@ -21,10 +25,11 @@ def paramiko_B(command):
 	finally:
 		client.close()
 
-
-command=["curl","http://172.30.0.30"]
-subprocess.run(command)
-command=["hydra","-1","username","-p","incorrect","2222","-t","1","172.30.0.20","ssh"]
-paramiko_B(ls)
-paramiko_B(pwd)
+def run():
+	command=["curl","http://172.30.0.30"]
+	subprocess.run(command)
+	command=["hydra","-l","username","-p","incorrect","-s","2222","-t","1","172.30.0.20","ssh"]
+	subprocess.run(command)
+paramiko_B("ls")
+paramiko_B("pwd")
 
