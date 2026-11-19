@@ -11,7 +11,7 @@ from labeler import scenario
 from scenarios import ssh_bruteforce, ssh_session, http_bruteforce, benign
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-GAP = 15  # seconds between scenarios so their time windows don't overlap
+GAP = 70  # seconds between scenarios so their time windows don't overlap; must exceed classify.py's 60s burst gap
 
 # (name, mitre, target, function)
 PLAN = [

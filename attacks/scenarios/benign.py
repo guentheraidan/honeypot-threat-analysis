@@ -37,4 +37,3 @@ def run():
 	paramiko_B("pwd")
 	time.sleep(1)
 	paramiko_B("exit")
-run()

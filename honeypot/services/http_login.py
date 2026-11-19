@@ -15,7 +15,8 @@ LOGIN_PAGE = """<!DOCTYPE html>
 <html><head><title>Router Admin</title></head>
 <body><h2>Admin Console</h2>
 <form method="POST" action="/login">
-User: <input name="password" type="password"<br>
+User: <input name="username"><br>
+Password: <input name="password" type="password"><br>
 <input type="submit" value="Log in">
 </form>{msg}</body></html>"""
 

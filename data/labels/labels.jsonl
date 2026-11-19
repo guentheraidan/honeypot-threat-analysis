@@ -1,0 +1,12 @@
+{"run_id": 1, "scenario": "ssh_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T02:55:20.513Z", "end_ts": "2026-11-19T02:55:39.647Z"}
+{"run_id": 1, "scenario": "ssh_session", "mitre": "T1078,T1082,T1033,T1105,T1053.003,T1098.004", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T02:56:49.658Z", "end_ts": "2026-11-19T02:57:05.447Z"}
+{"run_id": 1, "scenario": "http_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.30", "start_ts": "2026-11-19T02:58:15.452Z", "end_ts": "2026-11-19T02:58:17.783Z"}
+{"run_id": 1, "scenario": "benign", "mitre": "", "src_ip": "172.30.0.10", "target": "both", "start_ts": "2026-11-19T02:59:27.797Z", "end_ts": "2026-11-19T02:59:35.730Z"}
+{"run_id": 2, "scenario": "ssh_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T03:01:07.145Z", "end_ts": "2026-11-19T03:01:26.189Z"}
+{"run_id": 2, "scenario": "ssh_session", "mitre": "T1078,T1082,T1033,T1105,T1053.003,T1098.004", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T03:02:36.202Z", "end_ts": "2026-11-19T03:02:51.796Z"}
+{"run_id": 2, "scenario": "http_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.30", "start_ts": "2026-11-19T03:04:01.807Z", "end_ts": "2026-11-19T03:04:04.008Z"}
+{"run_id": 2, "scenario": "benign", "mitre": "", "src_ip": "172.30.0.10", "target": "both", "start_ts": "2026-11-19T03:05:14.017Z", "end_ts": "2026-11-19T03:05:21.746Z"}
+{"run_id": 3, "scenario": "ssh_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T03:06:36.324Z", "end_ts": "2026-11-19T03:06:55.324Z"}
+{"run_id": 3, "scenario": "ssh_session", "mitre": "T1078,T1082,T1033,T1105,T1053.003,T1098.004", "src_ip": "172.30.0.10", "target": "172.30.0.20", "start_ts": "2026-11-19T03:08:05.341Z", "end_ts": "2026-11-19T03:08:20.991Z"}
+{"run_id": 3, "scenario": "http_bruteforce", "mitre": "T1110.001", "src_ip": "172.30.0.10", "target": "172.30.0.30", "start_ts": "2026-11-19T03:09:30.996Z", "end_ts": "2026-11-19T03:09:33.204Z"}
+{"run_id": 3, "scenario": "benign", "mitre": "", "src_ip": "172.30.0.10", "target": "both", "start_ts": "2026-11-19T03:10:43.211Z", "end_ts": "2026-11-19T03:10:50.994Z"}

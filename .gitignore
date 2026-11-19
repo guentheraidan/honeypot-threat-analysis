@@ -3,5 +3,5 @@ __pycache__/
 *.pyc
 .venv/
 .idea/
-data/raw/
-data/labels/
+attacks/paramiko.org
+hydra.restore

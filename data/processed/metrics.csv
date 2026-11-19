@@ -1,0 +1,6 @@
+class,TP,FP,FN,precision,recall
+brute_force,6,0,0,1.0,1.0
+persistence,3,0,0,1.0,1.0
+recon,3,0,0,1.0,1.0
+tool_transfer,3,0,0,1.0,1.0
+valid_account,3,0,0,1.0,1.0
