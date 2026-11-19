@@ -5,6 +5,5 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-[4hroot@web-prod-01:~# pwd
-[4l/root
-[4hroot@web-prod-01:~# 
+[4hroot@web-prod-01:~# exit
+[4l
