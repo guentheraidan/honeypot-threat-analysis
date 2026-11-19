@@ -1,5 +1,5 @@
 # Author: Aidan Guenther
-"""Fake router admin login page (low-interaction HTTP honeypot on port 80."""
+"""Fake router admin login page (low-interaction HTTP honeypot on port 80)."""
 import asyncio
 import contextlib
 from urllib.parse import parse_qs, urlsplit
@@ -68,7 +68,7 @@ async def handle(reader: asyncio.StreamReader, writer: asyncio.StreamWriter) -> 
             log_event(event_type="login_failed",
                       username=form.get("username", [""])[0],
                       password=form.get("password", [""])[0], **base)
-            # Every login fails (Hydra spots failures by word "Invalid"
+            # Every login fails (Hydra spots failures by word "Invalid")
             status, reason, page = 200, "OK", LOGIN_PAGE.format(msg="<p>Invalid credentials</p>")
         else:
             status, reason, page = 404, "Not Found", NOT_FOUND

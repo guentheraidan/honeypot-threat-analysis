@@ -16,7 +16,6 @@ services:
   honeypot:
     build: ./honeypot
     container_name: honeypot
-    cap_add: [NET_RAW, NET_ADMIN]
     volumes:
       - ./data/raw/honeypot:/logs
     networks:
