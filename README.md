@@ -58,7 +58,6 @@ docker compose down
 | Path | Purpose | Author |
 | --- | --- | --- |
 | docker-compose.yaml | The 3 containers and the isolated network | Aidan |
-| cowrie/userdb.txt | SSH logins Cowrie accepts | Aidan |
 | honeypot/ | Custom honeypot: logger, HTTP login service | Aidan |
 | attacks/Dockerfile, labeler.py, run_all.py | Attacker image, ground-truth labeler, scenario runner | Aidan |
 | attacks/scenarios/, attacks/wordlists/ | The four attack scenarios and wordlists | Lazaro |
@@ -66,7 +65,7 @@ docker compose down
 | data/raw/ | Raw honeypot logs | generated |
 | data/labels/ | Ground-truth labels | generated |
 | data/processed/ | Pipeline output | generated |
-| report/figures/ | Figures used in the paper | Aidan |
+| report/figures/ | Figures used in the paper | generated |
 
 ## Log format
 Both sensors log one JSON object per line. The custom honeypot writes `data/raw/honeypot/honeypot.jsonl`; Cowrie writes `data/raw/cowrie/cowrie.json`, which the parser converts. Shared fields: `ts` (UTC ISO-8601), `sensor`, `session`, `src_ip`, `src_port`, `dst_port`, `service`, `event_type`, plus `username`, `password`, `command`, `path`, `method`, `user_agent`, `status`, `payload` where relevant. `event_type` is one of: connect, login_failed, login_success, command, http_request, file_download, disconnect.
